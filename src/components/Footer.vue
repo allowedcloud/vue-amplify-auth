@@ -11,20 +11,46 @@ const toggleLocales = () => {
 </script>
 
 <template>
-  <router-link to="/" :title="t('button.home')">
-    <carbon-campsite />
-  </router-link>
+  <footer>
+    <button :title="t('button.toggle_dark')" @click="toggleDark()">
+      <carbon-moon v-if="isDark" />
+      <carbon-sun v-else />
+    </button>
 
-  <button :title="t('button.toggle_dark')" @click="toggleDark()">
-    <carbon-moon v-if="isDark" />
-    <carbon-sun v-else />
-  </button>
-
-  <a :title="t('button.toggle_langs')" @click="toggleLocales">
-    <carbon-language />
-  </a>
-
-  <router-link to="/about" :title="t('button.about')">
-    <carbon-dicom-overlay />
-  </router-link>
+    <button :title="t('button.toggle_langs')" @click="toggleLocales">
+      <carbon-language />
+    </button>
+    <a href="#">
+      <carbon-logo-github />
+    </a>
+  </footer>
 </template>
+
+<style lang="postcss" scoped>
+footer {
+  display: flex;
+  justify-content: center;
+  margin-top: 2em;
+
+  & button,
+  a {
+    color: var(--gray-4);
+    background: none;
+    border: none;
+    margin: 0 1em;
+    padding: 0;
+    -webkit-tap-highlight-color: transparent;
+
+    & svg {
+      width: 20px;
+      height: 20px;
+    }
+  }
+}
+
+.dark {
+  & a {
+    color: white;
+  }
+}
+</style>
