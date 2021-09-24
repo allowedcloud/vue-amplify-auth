@@ -14,21 +14,23 @@ const { t } = useI18n()
 section {
   display: flex;
   flex-direction: column;
-  align-items: center;
 }
+
 p {
   font-family: sans-serif;
   font-size: 16px;
-  padding: 1em;
   max-width: 65ch;
+  padding: 0 2em;
 }
 .demo-button {
   background-color: var(--gold-8);
   color: black;
   padding: 0.5em 2em;
+  margin: 2em 0;
   border-radius: 15px;
   text-decoration: none;
   font-weight: 600;
+  align-self: center;
 
   &:hover {
     background-color: var(--gold-7);
