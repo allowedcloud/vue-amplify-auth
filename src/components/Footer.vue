@@ -30,7 +30,9 @@ const toggleLocales = () => {
 footer {
   display: flex;
   justify-content: center;
-  margin-top: 2em;
+  margin: 2em 2em 0 2em;
+  padding-top: 1em;
+  border-top: 1px solid var(--gray-10);
 
   & button,
   a {
