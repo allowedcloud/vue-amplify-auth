@@ -1,0 +1,57 @@
+form.auth-form {
+    display: flex;
+    flex-direction: column;
+    padding: 4em 2em 0 2em;
+
+    & .buttons {
+        display: flex;
+        align-items: center;
+        margin: 1em 0;
+        font-family: sans-serif;
+        font-size: 12px;
+
+        @media screen and (max-width: 425px) {
+            flex-direction: column;
+        }
+
+        & .solid {
+            background-color: var(--gold-7);
+            border-radius: 10px;
+            padding: 0.5em 1em;
+            font-size: 14px;
+            font-weight: 600;
+            align-self: flex-start;
+        }
+
+        & .clear {
+            background: none;
+            font-weight: 600;
+            text-decoration: underline;
+        }
+
+        & span {
+            display: flex;
+            margin: 1em 0;
+            white-space: nowrap;
+            align-self: flex-start;
+        }
+
+        & button {
+            border: none;
+            margin-right: 2em;
+            cursor: pointer;
+        }
+    }
+
+    & label {
+        margin-bottom: 0.5em;
+        font-family: sans-serif;
+        font-weight: 600;
+    }
+
+    & input {
+        margin-bottom: 1em;
+        padding: 0.5em;
+        border-radius: 7px;
+    }
+}
