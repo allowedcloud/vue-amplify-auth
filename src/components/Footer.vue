@@ -12,6 +12,12 @@ const toggleLocales = () => {
 
 <template>
   <footer>
+    <router-link to="/" title="Home">
+      <carbon-home />
+    </router-link>
+    <router-link to="/login" title="Login">
+      <carbon-login />
+    </router-link>
     <button :title="t('button.toggle_dark')" @click="toggleDark()">
       <carbon-moon v-if="isDark" />
       <carbon-sun v-else />
@@ -46,6 +52,8 @@ footer {
     & svg {
       width: 20px;
       height: 20px;
+      padding: 0;
+      margin: 0;
     }
   }
 }
