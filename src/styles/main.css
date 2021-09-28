@@ -19,6 +19,14 @@ html.dark svg {
   color: white;
 }
 
+html.dark button.clear {
+  color: white;
+}
+
+html.dark button.back-button {
+  color: white;
+}
+
 #nprogress {
   pointer-events: none;
 }

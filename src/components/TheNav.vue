@@ -19,4 +19,12 @@ nav {
         -webkit-tap-highlight-color: transparent;
     }
 }
+
+.dark {
+    nav {
+        & a {
+            color: white;
+        }
+    }
+}
 </style>

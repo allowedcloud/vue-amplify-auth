@@ -11,7 +11,10 @@ function submitForm() {
         <input type="text" name="username" />
         <span class="pw">
             <label for="password">Password</label>
-            <button @click.prevent="$emit('formState', 'forgotPassword')">Forgot password?</button>
+            <button
+                @click.prevent="$emit('formState', 'forgotPassword')"
+                class="clear"
+            >Forgot password?</button>
         </span>
         <input type="password" name="password" />
         <div class="buttons">
