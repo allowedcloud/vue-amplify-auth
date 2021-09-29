@@ -7,13 +7,13 @@ function submitForm() {
 <template>
     <form class="auth-form" @submit.prevent="submit">
         <label for="username">Username</label>
-        <input type="text" name="username" />
+        <input type="text" name="username" autocomplete="user" />
         <label for="email">Email</label>
-        <input type="text" name="email" />
+        <input type="text" name="email" autocomplete="email" />
         <label for="password">Password</label>
-        <input type="password" name="password" />
+        <input type="password" name="password" autocomplete="new-password" />
         <label for="cpassword">Confirm password</label>
-        <input type="password" name="cpassword" />
+        <input type="password" name="cpassword" autocomplete="new-password" />
         <div class="buttons">
             <button @click="submitForm" class="solid">Sign Up</button>
             <span>

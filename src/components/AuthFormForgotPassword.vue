@@ -8,7 +8,7 @@
             <carbon-arrow-left />&nbsp; Back
         </button>
         <label for="email">Email</label>
-        <input type="text" name="email" />
+        <input type="text" name="email" autocomplete="email" />
         <div class="buttons">
             <button class="solid">Submit</button>
         </div>

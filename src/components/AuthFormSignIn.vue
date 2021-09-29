@@ -8,7 +8,7 @@ function submitForm() {
 <template>
     <form class="auth-form">
         <label for="username">Username</label>
-        <input type="text" name="username" />
+        <input type="text" name="username" autocomplete="user" />
         <span class="pw">
             <label for="password">Password</label>
             <button
@@ -16,7 +16,7 @@ function submitForm() {
                 class="clear"
             >Forgot password?</button>
         </span>
-        <input type="password" name="password" />
+        <input type="password" name="password" autocomplete="current-password" />
         <div class="buttons">
             <button @click="submitForm" class="solid">Sign in</button>
             <span>
