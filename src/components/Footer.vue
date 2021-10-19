@@ -1,12 +1,24 @@
 <script setup lang="ts">
 import { isDark, toggleDark } from '~/logic'
+import { useStore } from '../stores/auth'
+import { useRouter } from 'vue-router'
 
 const { t, availableLocales, locale } = useI18n()
+const store = useStore()
+const router = useRouter()
+
+const isAuthenticated = computed(() => store.isAuthenticated)
+const username = computed(() => store.cognitoUser.username)
 
 const toggleLocales = () => {
   // change to some real logic
   const locales = availableLocales
   locale.value = locales[(locales.indexOf(locale.value) + 1) % locales.length]
+}
+
+function signOut() {
+  store.signOut()
+  router.push('/login')
 }
 </script>
 
@@ -15,8 +27,11 @@ const toggleLocales = () => {
     <router-link to="/" title="Home">
       <carbon-home />
     </router-link>
-    <router-link to="/login" title="Login">
+    <router-link v-show="!isAuthenticated" to="/login" title="Login">
       <carbon-login />
+    </router-link>
+    <router-link v-show="isAuthenticated" :to="`/users/${username}`">
+      <carbon-user />
     </router-link>
     <button :title="t('button.toggle_dark')" @click="toggleDark()">
       <carbon-moon v-if="isDark" />
@@ -29,6 +44,7 @@ const toggleLocales = () => {
     <a href="#">
       <carbon-logo-github />
     </a>
+    <button v-show="isAuthenticated" @click="signOut">Sign out</button>
   </footer>
 </template>
 

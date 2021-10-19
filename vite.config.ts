@@ -31,6 +31,25 @@ export default defineConfig({
     // https://github.com/hannoeru/vite-plugin-pages
     Pages({
       extensions: ['vue', 'md'],
+      extendRoute(route) {
+        if (route.path === '/') {
+          return route;
+        }
+
+        if (route.path === '/login') {
+          return route;
+        }
+
+        return {
+          ...route,
+          beforeEnter: (route) => {
+            console.log(route)
+          },
+          meta: {
+            auth: true
+          }
+        }
+      }
     }),
 
     // https://github.com/JohnCampionJr/vite-plugin-vue-layouts
@@ -139,11 +158,14 @@ export default defineConfig({
     },
   },
 
-  // https://github.com/antfu/vite-ssg
-  ssgOptions: {
-    script: 'async',
-    formatting: 'minify',
-  },
+  // // https://github.com/antfu/vite-ssg
+  // ssgOptions: {
+  //   script: 'async',
+  //   formatting: 'minify',
+  //   includedRoutes(routes) {
+  //     return routes.filter(i => !i.includes('/login'))
+  //   }
+  // },
 
   optimizeDeps: {
     include: [

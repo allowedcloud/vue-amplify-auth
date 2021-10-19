@@ -1,10 +1,15 @@
 <script setup lang="ts">
 import { useForm, useField } from 'vee-validate';
 import { object, string } from 'yup';
+import { useStore } from '../stores/auth'
+
+const store = useStore()
+const router = useRouter()
+const errorMessage = ref('')
 
 // Define a validation schema
 const schema = object({
-    user: string().required().label('Username'),
+    username: string().required().label('Username'),
     password: string().required().min(8).label('Your Password'),
 });
 
@@ -12,26 +17,43 @@ const schema = object({
 const { errors, handleSubmit } = useForm({
     validationSchema: schema,
     initialValues: {
-        user: '',
+        username: '',
         password: ''
     }
 })
 
 // Define fields
-const { value: user, meta: userMeta } = useField('user');
+const { value: username, meta: userMeta } = useField('username');
 const { value: password, meta: passwordMeta } = useField('password');
 
+
+// Submit function
 const onSubmit = handleSubmit(values => {
-    console.log(values)
-    console.log("Form submitted!")
+    // Log the user in
+    const user = store.signIn(values)
+    // Handle return Promise
+    user.then(function () {
+        // Success
+        router.push(`/users/${username.value}`)
+    },
+        function (value) {
+            // Fail
+            errorMessage.value = value.message
+            password.value = ''
+            passwordMeta.touched = false
+        }
+    )
 });
 </script>
 
 <template>
     <form class="auth-form" @submit.prevent>
+        <p class="errors">{{ errorMessage }}</p>
+        <!-- Username field -->
         <label for="username">Username</label>
-        <input v-model="user" type="text" name="username" autocomplete="user" />
-        <span v-if="errors.user && userMeta.touched" class="errors">{{ errors.user }}</span>
+        <input v-model="username" type="text" name="username" autocomplete="user" />
+        <span v-if="errors.username && userMeta.touched" class="errors">{{ errors.username }}</span>
+        <!-- Password field -->
         <div class="pw">
             <label for="password">Password</label>
             <span
@@ -41,6 +63,7 @@ const onSubmit = handleSubmit(values => {
         </div>
         <input v-model="password" type="password" name="password" autocomplete="current-password" />
         <span v-if="errors.password && passwordMeta.touched" class="errors">{{ errors.password }}</span>
+        <!-- Buttons -->
         <div class="buttons">
             <button @click="onSubmit" class="solid">Sign in</button>
             <span>
