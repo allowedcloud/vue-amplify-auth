@@ -2,6 +2,6 @@
   <main>
     <TheNav />
     <router-view />
-    <Footer />
+    <TheFooter />
   </main>
 </template>

@@ -4,13 +4,15 @@ const store = useStore()
 const user = store.getUser
 </script>
 
-<route>
+<!-- SFC route meta data -->
+<!-- <route>
 {
     meta: {
         auth: true
     }
 }
-</route>
+</route> -->
+
 <template>
     <section>
         <h1>Hello {{ user.username }}!</h1>
