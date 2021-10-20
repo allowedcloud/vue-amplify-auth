@@ -1,6 +1,11 @@
 # Vue Amplify Auth
 
-## [Vue 3](https://v3.vuejs.org) with [Vite](https://vitejs.dev/), using [Vitesse](https://github.com/antfu/vitesse) starter template, [Pinia](https://pinia.esm.dev/) for state, [AWS Amplify](https://aws.amazon.com/amplify/) for user authentication 
+<img
+    src="public/vue-amplify-auth-logo.png"
+    style="width: 150px;height: 100%;display: block; margin: 1em auto;"
+/>
+
+### [Vue 3](https://v3.vuejs.org) with [Vite](https://vitejs.dev/), using [Vitesse](https://github.com/antfu/vitesse) starter template, [Pinia](https://pinia.esm.dev/) for state, [AWS Amplify](https://aws.amazon.com/amplify/) for user authentication 
 
 </br>
 
