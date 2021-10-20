@@ -23,5 +23,13 @@
   },
   "files.associations": {
     "*.css": "postcss"
-  }
+  },
+  "spellright.language": [
+    "English (American)"
+  ],
+  "spellright.documentTypes": [
+    "markdown",
+    "latex",
+    "plaintext"
+  ]
 }
