@@ -1,5 +1,3 @@
-# Vue Amplify Auth
-
 <p align="center">
 <img
     src="public/vue-amplify-auth-logo.png"
