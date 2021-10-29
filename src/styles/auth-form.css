@@ -2,10 +2,22 @@ form.auth-form {
     display: flex;
     flex-direction: column;
     padding: 0em 2em 0 2em;
+    margin: 2em 0;
+
+    /* background-color: var(--gray-9);
+    border: 1px solid red; */
+
 
     @media (min-width: 425px) {
-        margin: 0 auto;
+        min-width: 300px;
+        /* margin: 5em auto; */
         padding-top: 2em;
+    }
+
+    & .need-account {
+        & button {
+            margin-left: 1em;
+        }
     }
 
     & .buttons {
@@ -57,7 +69,12 @@ form.auth-form {
 
     & input {
         margin-bottom: 1em;
-        padding: 0.5em;
+        padding: .75em 0.5em;
         border-radius: 7px;
+        border: 2px solid var(--gray-2);
+        &:focus {
+            outline: transparent;
+            border: 2px solid var(--gold-7);
+        }
     }
 }

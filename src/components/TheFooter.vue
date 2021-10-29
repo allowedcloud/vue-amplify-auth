@@ -1,30 +1,30 @@
 <script setup lang="ts">
-import { isDark, toggleDark } from '~/logic'
-import { useStore } from '../stores/auth'
-import { useRouter } from 'vue-router'
+import { useRouter } from "vue-router";
+import { useStore } from "../stores/auth";
+import { isDark, toggleDark } from "~/logic";
 
-const { t, availableLocales, locale } = useI18n()
-const store = useStore()
-const router = useRouter()
+const { t, availableLocales, locale } = useI18n();
+const store = useStore();
+const router = useRouter();
 
-const isAuthenticated = computed(() => store.isAuthenticated)
-const username = computed(() => store.cognitoUser.username)
+const isAuthenticated = computed(() => store.isAuthenticated);
+const username = computed(() => store.cognitoUser.username);
 
 const toggleLocales = () => {
   // change to some real logic
-  const locales = availableLocales
-  locale.value = locales[(locales.indexOf(locale.value) + 1) % locales.length]
-}
+  const locales = availableLocales;
+  locale.value = locales[(locales.indexOf(locale.value) + 1) % locales.length];
+};
 
 function signOut() {
-  store.signOut()
-  router.push('/login')
+  store.signOut();
+  router.push("/login");
 }
 </script>
 
 <template>
   <footer>
-    <router-link to="/" title="Home">
+    <!-- <router-link to="/" title="Home">
       <carbon-home />
     </router-link>
     <router-link v-show="!isAuthenticated" to="/login" title="Login">
@@ -32,17 +32,24 @@ function signOut() {
     </router-link>
     <router-link v-show="isAuthenticated" :to="`/users/${username}`">
       <carbon-user />
-    </router-link>
+    </router-link> -->
     <button :title="t('button.toggle_dark')" @click="toggleDark()">
-      <carbon-moon v-if="isDark" />
-      <carbon-sun v-else />
+      <span v-if="isDark">
+        <carbon-sun />
+        Light
+      </span>
+      <span v-else>
+        <carbon-moon />
+        Dark
+      </span>
     </button>
-
     <button :title="t('button.toggle_langs')" @click="toggleLocales">
       <carbon-language />
+      {{ locale.toUpperCase() }}
     </button>
     <a href="#">
       <carbon-logo-github />
+      Repository
     </a>
     <button v-show="isAuthenticated" @click="signOut">Sign out</button>
   </footer>
@@ -50,33 +57,58 @@ function signOut() {
 
 <style lang="postcss" scoped>
 footer {
+  position: absolute;
+  bottom: 0;
+  height: 3rem;
+  width: 100%;
   display: flex;
-  justify-content: center;
-  margin: 2em 2em 0 2em;
-  padding-top: 1em;
+  justify-content: space-around;
+  align-items: center;
   border-top: 1px solid var(--gray-10);
 
   & button,
   a {
+    display: flex;
+    align-items: center;
     color: var(--gray-4);
+    font-family: sans-serif;
+    font-size: 14px;
+    font-weight: 600;
     background: none;
     border: none;
     margin: 0 1em;
-    padding: 0;
+    padding: 6px 10px;
+    border-radius: 8px;
     -webkit-tap-highlight-color: transparent;
+
+    &:active {
+      background-color: var(--gray-10);
+      color: var(--gray-4);
+    }
+
+    & span {
+      display: flex;
+      align-items: center;
+    }
 
     & svg {
       width: 20px;
       height: 20px;
       padding: 0;
       margin: 0;
+      margin-right: 0.5em;
     }
   }
 }
 
-.dark {
-  & a {
+html.dark {
+  & button,
+  a {
     color: white;
+
+    &:active {
+      background-color: var(--gray-3);
+    }
   }
 }
 </style>

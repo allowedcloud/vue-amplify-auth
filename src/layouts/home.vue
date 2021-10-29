@@ -1,16 +1,23 @@
 <template>
+  <TheNav />
   <main>
-    <TheNav />
     <router-view />
-    <TheFooter />
   </main>
+  <TheFooter />
 </template>
 
 <style lang="postcss" scoped>
 main {
   display: flex;
   flex-direction: column;
+  /* margin: 0 auto; */
+  margin: 0 auto 2rem auto;
   max-width: 70ch;
-  margin: 0 auto;
+  /* margin-bottom: 3rem; */
+  flex-grow: 1;
+
+  @media (min-width: 425px) {
+    margin: 5em auto;
+  }
 }
 </style>

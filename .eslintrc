@@ -1,5 +1,9 @@
 {
+  "rules": {
+    "max-len": "error"
+  },
   "extends": [
-    "@antfu"
+    "@antfu",
+    "prettier"
   ]
 }
