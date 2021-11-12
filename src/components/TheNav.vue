@@ -15,15 +15,23 @@ function signOut() {
       <h1>Vue Amplify Auth</h1>
     </router-link>
     <div class="links">
-      <router-link to="/"> <carbon-home />Home </router-link>
+      <router-link to="/">
+        <carbon-home />
+        <span class="label"> Home </span>
+      </router-link>
       <router-link v-if="!isAuthenticated" to="/login">
-        <carbon-login />Demo
+        <carbon-login />
+        <span class="label"> Demo </span>
       </router-link>
       <router-link v-show="isAuthenticated" :to="`/users/${user.username}`">
-        <carbon-user /> {{ user.username }}
+        <carbon-user />
+        <span class="label">
+          {{ user.username }}
+        </span>
       </router-link>
       <button v-show="isAuthenticated" @click="signOut">
-        <carbon-logout />Logout
+        <carbon-logout />
+        <span class="label"> Logout </span>
       </button>
     </div>
   </nav>
@@ -35,6 +43,12 @@ nav {
   justify-content: space-between;
   padding: 1rem 0 0 0;
   margin-right: 1rem;
+
+  & .label {
+    @media (max-width: 425px) {
+      display: none;
+    }
+  }
   & .links {
     display: flex;
     font-family: sans-serif;
