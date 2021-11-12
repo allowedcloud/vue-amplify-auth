@@ -1,5 +1,8 @@
 <script setup lang="ts">
 import { useI18n } from "vue-i18n";
+import { useStore } from "../stores/auth";
+const store = useStore();
+const isAuthenticated = computed(() => store.isAuthenticated);
 const { t } = useI18n();
 </script>
 
@@ -17,7 +20,9 @@ const { t } = useI18n();
       <li>Vite with Vitesse</li>
       <li>Custom-built authentication component</li>
     </ul>
-    <router-link to="/login" class="demo-button">Demo</router-link>
+    <router-link v-if="!isAuthenticated" to="/login" class="demo-button"
+      >Demo</router-link
+    >
   </section>
 </template>
 
