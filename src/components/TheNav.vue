@@ -85,12 +85,17 @@ nav {
 
 html.dark {
   nav {
-    & a {
-      color: var(--gray-9);
-
+    & a,
+    button,
+    h1 {
+      color: var(--gray-10);
       &:active {
         background-color: var(--gray-3);
       }
+    }
+
+    & svg {
+      color: var(--gray-8);
     }
   }
 }

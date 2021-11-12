@@ -87,6 +87,16 @@ section {
     }
   }
 }
+
+html.dark {
+  & section {
+    & h3,
+    p,
+    ul {
+      color: white;
+    }
+  }
+}
 </style>
 
 <route lang="yaml">
