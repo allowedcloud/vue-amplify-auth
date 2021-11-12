@@ -53,6 +53,7 @@ nav {
     margin: 0 0.5em;
     padding: 10px 10px;
     border-radius: 8px;
+    cursor: pointer;
 
     &:active {
       color: var(--gray-2);

@@ -81,6 +81,7 @@ footer {
     padding: 6px 10px;
     border-radius: 8px;
     -webkit-tap-highlight-color: transparent;
+    cursor: pointer;
 
     &:active {
       background-color: var(--gray-10);
