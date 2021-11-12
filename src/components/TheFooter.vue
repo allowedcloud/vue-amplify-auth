@@ -15,24 +15,10 @@ const toggleLocales = () => {
   const locales = availableLocales;
   locale.value = locales[(locales.indexOf(locale.value) + 1) % locales.length];
 };
-
-function signOut() {
-  store.signOut();
-  router.push("/login");
-}
 </script>
 
 <template>
   <footer>
-    <!-- <router-link to="/" title="Home">
-      <carbon-home />
-    </router-link>
-    <router-link v-show="!isAuthenticated" to="/login" title="Login">
-      <carbon-login />
-    </router-link>
-    <router-link v-show="isAuthenticated" :to="`/users/${username}`">
-      <carbon-user />
-    </router-link> -->
     <button :title="t('button.toggle_dark')" @click="toggleDark()">
       <span v-if="isDark">
         <carbon-sun />
@@ -51,7 +37,6 @@ function signOut() {
       <carbon-logo-github />
       Repository
     </a>
-    <button v-show="isAuthenticated" @click="signOut">Sign out</button>
   </footer>
 </template>
 

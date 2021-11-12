@@ -2,6 +2,11 @@
 import { useStore } from "../stores/auth";
 const store = useStore();
 const isAuthenticated = computed(() => store.isAuthenticated);
+const user = computed(() => store.cognitoUser);
+function signOut() {
+  store.signOut();
+  router.push("/login");
+}
 </script>
 
 <template>
@@ -14,6 +19,12 @@ const isAuthenticated = computed(() => store.isAuthenticated);
       <router-link v-if="!isAuthenticated" to="/login">
         <carbon-login />Demo
       </router-link>
+      <router-link v-show="isAuthenticated" :to="`/users/${user.username}`">
+        <carbon-user /> {{ user.username }}
+      </router-link>
+      <button v-show="isAuthenticated" @click="signOut">
+        <carbon-logout />Logout
+      </button>
     </div>
   </nav>
 </template>
@@ -27,9 +38,8 @@ nav {
   & .links {
     display: flex;
     font-family: sans-serif;
-    text-transform: uppercase;
-    font-size: large;
-    font-weight: 600;
+    font-size: medium;
+    text-transform: capitalize;
 
     @media (max-width: 425px) {
       font-size: small;
@@ -44,7 +54,8 @@ nav {
       font-size: 18px;
     }
   }
-  & a {
+  & a,
+  button {
     display: flex;
     align-items: center;
     color: var(--gray-4);
