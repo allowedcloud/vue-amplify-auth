@@ -10,7 +10,7 @@
 main {
   display: flex;
   flex-direction: column;
-  margin: 0 auto 3rem auto;
+  margin: 0 auto 2rem auto;
   max-width: 70ch;
   flex-grow: 1;
 }

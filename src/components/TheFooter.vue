@@ -59,12 +59,13 @@ function signOut() {
 footer {
   position: absolute;
   bottom: 0;
+  right: 0;
   height: 3rem;
   width: 100%;
   display: flex;
   justify-content: space-around;
   align-items: center;
-  border-top: 1px solid var(--gray-10);
+  margin-right: 1em;
 
   & button,
   a {
@@ -92,6 +93,7 @@ footer {
     }
 
     & svg {
+      color: var(--gray-6);
       width: 20px;
       height: 20px;
       padding: 0;

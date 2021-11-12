@@ -1,4 +1,8 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { useStore } from "../stores/auth";
+const store = useStore();
+const isAuthenticated = computed(() => store.isAuthenticated);
+</script>
 
 <template>
   <nav>
@@ -7,7 +11,9 @@
     </router-link>
     <div class="links">
       <router-link to="/"> <carbon-home />Home </router-link>
-      <router-link to="/login"> <carbon-login />Demo </router-link>
+      <router-link v-if="!isAuthenticated" to="/login">
+        <carbon-login />Demo
+      </router-link>
     </div>
   </nav>
 </template>
@@ -16,25 +22,32 @@
 nav {
   display: flex;
   justify-content: space-between;
-  padding: 0.5em 0;
-  margin-bottom: 1em;
-  border-bottom: 1px solid var(--gray-10);
+  padding: 1rem 0 0 0;
+  margin-right: 1rem;
   & .links {
     display: flex;
     font-family: sans-serif;
     text-transform: uppercase;
-    font-size: 14px;
+    font-size: large;
     font-weight: 600;
+
+    @media (max-width: 425px) {
+      font-size: small;
+    }
   }
   & h1 {
+    font-family: monospace;
+    font-size: x-large;
+    font-weight: 600;
+    color: var(--gray-3);
     @media (max-width: 425px) {
-      font-size: 20px;
+      font-size: 18px;
     }
   }
   & a {
     display: flex;
     align-items: center;
-    color: var(--gray-3);
+    color: var(--gray-4);
     text-decoration: none;
     -webkit-tap-highlight-color: transparent;
     margin: 0 0.5em;
@@ -52,6 +65,7 @@ nav {
     }
 
     & svg {
+      color: var(--gray-6);
       margin-right: 0.5em;
     }
   }
@@ -60,7 +74,7 @@ nav {
 html.dark {
   nav {
     & a {
-      color: white;
+      color: var(--gray-9);
 
       &:active {
         background-color: var(--gray-3);

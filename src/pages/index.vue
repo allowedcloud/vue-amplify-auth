@@ -5,20 +5,18 @@ const { t } = useI18n();
 
 <template>
   <section>
+    <img src="/vue-amplify-auth-logo.png" class="logo" />
+    <h3>Vue 3 application showcasing user authentication with AWS Amplify.</h3>
     <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut non accumsan
-      nunc, at euismod sapien. Etiam aliquet risus et leo laoreet placerat eu
-      vel enim. Nunc pharetra eros sit amet dignissim tempus. Donec elementum
-      hendrerit elit, a egestas sem aliquet eget. Vestibulum feugiat leo lectus,
-      a semper purus aliquam non. Cras ultrices mauris sed sem gravida mollis.
-      Vestibulum commodo, enim ut ultrices consectetur, tortor tellus dapibus
-      justo, id dapibus leo arcu quis ipsum. Duis finibus ultricies risus, et
-      vehicula nisi ultricies ut. Proin feugiat quam quis nisl elementum
-      accumsan. Aliquam iaculis ipsum urna, et aliquam lorem commodo sit amet.
-      Morbi scelerisque id eros non vehicula. Duis bibendum iaculis sapien. In
-      dui eros, feugiat sit amet ligula eget, ultrices lacinia nisi. Vivamus
-      imperdiet viverra erat, quis interdum lectus mollis eget.
+      This was built to show others how to implement user authentication in a
+      Vue 3 application with the Composition API.
     </p>
+    <ul>
+      <li>Built with Vue 3 and the new Composition API</li>
+      <li>Uses PostCSS</li>
+      <li>Vite with Vitesse</li>
+      <li>Custom-built authentication component</li>
+    </ul>
     <router-link to="/login" class="demo-button">Demo</router-link>
   </section>
 </template>
@@ -27,29 +25,61 @@ const { t } = useI18n();
 section {
   display: flex;
   flex-direction: column;
-}
-
-p {
   font-family: sans-serif;
-  font-size: 16px;
-  max-width: 65ch;
-  padding: 0 2em;
-}
-.demo-button {
-  background-color: var(--gold-8);
-  color: black;
-  padding: 0.5em 2em;
-  margin: 2em 0;
-  border-radius: 15px;
-  text-decoration: none;
-  font-weight: 600;
-  align-self: center;
-  border: 2px solid transparent;
-  &:hover {
-    background-color: white;
-    border-color: var(--gold-8);
+  padding: 1em;
+
+  & img {
+    width: 45%;
+    filter: none;
+    transition: filter 0.3s ease-in-out;
+    margin: 2em 0;
+
+    @media (min-width: 426px) {
+      width: 20%;
+    }
+
+    &:hover {
+      filter: grayscale(75%);
+    }
   }
-  &:active {
+
+  & h3 {
+    font-size: x-large;
+    color: var(--gray-3);
+    margin: 0.5em 0;
+  }
+
+  & p {
+    font-size: large;
+    color: var(--gray-4);
+  }
+
+  & ul {
+    list-style: disc;
+    list-style-position: inside;
+    margin: 1em 0;
+    color: var(--gray-4);
+
+    & li {
+      margin: 1em 0;
+    }
+  }
+
+  & a.demo-button {
+    -webkit-tap-highlight-color: transparent;
+    border-radius: 14px;
+    cursor: pointer;
+    align-self: center;
+    font-family: sans-serif;
+    font-weight: 600;
+    padding: 1em 2em;
+    border: 3px solid var(--gold-7);
+    background-color: var(--gold-8);
+    color: var(--gold-5);
+
+    &:hover {
+      background-color: var(--gold-10);
+    }
   }
 }
 </style>

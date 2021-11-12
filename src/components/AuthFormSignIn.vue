@@ -64,9 +64,13 @@ const onSubmit = handleSubmit((values) => {
     <!-- Password field -->
     <div class="pw">
       <label for="password">Password</label>
-      <span tabindex="0" @click.prevent="$emit('formState', 'forgotPassword')"
-        >Forgot password?</span
+      <span
+        tabindex="0"
+        class="forgot-password"
+        @click.prevent="$emit('formState', 'forgotPassword')"
       >
+        Forgot password?
+      </span>
     </div>
     <input
       v-model="password"
@@ -91,6 +95,16 @@ const onSubmit = handleSubmit((values) => {
 </template>
 
 <style lang="postcss" scoped>
+.forgot-password {
+  padding: 6px;
+  border-radius: 8px;
+  -webkit-tap-highlight-color: transparent;
+  font-size: 14px;
+
+  &:hover {
+    background-color: var(--gray-10);
+  }
+}
 .errors {
   font-size: 12px;
   color: var(--red-6);
