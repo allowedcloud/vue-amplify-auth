@@ -78,3 +78,28 @@ form.auth-form {
         }
     }
 }
+
+html.dark {
+    & form.auth-form {
+        & input {
+            background-color: white;
+            color: var(--gray-3);
+            border: 2px solid var(--gray-4);
+            &:focus {
+                border: 2px solid var(--gold-8);
+            }
+        }
+
+        & .buttons {
+            & button {
+                color: var(--gray-3);
+            }
+        }
+
+        & .need-account {
+            & button {
+                color: var(--gray-10);
+            }
+        }
+    }
+}
