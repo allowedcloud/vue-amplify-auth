@@ -1,5 +1,7 @@
 <script setup lang="ts">
+import { useRouter } from "vue-router";
 import { useStore } from "../stores/auth";
+const router = useRouter();
 const store = useStore();
 const isAuthenticated = computed(() => store.isAuthenticated);
 const user = computed(() => store.cognitoUser);

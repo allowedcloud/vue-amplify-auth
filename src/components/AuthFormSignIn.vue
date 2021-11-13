@@ -3,6 +3,7 @@ import { useForm, useField } from "vee-validate";
 import { object, string } from "yup";
 import { useStore } from "../stores/auth";
 
+defineEmits(["formState"]);
 const store = useStore();
 const router = useRouter();
 const errorMessage = ref("");

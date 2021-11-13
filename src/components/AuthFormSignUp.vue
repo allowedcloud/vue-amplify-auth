@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useForm, useField, ErrorMessage } from "vee-validate";
+import { useForm, useField } from "vee-validate";
 import { object, string, ref as yupRef } from "yup";
 import { ref } from "vue";
 import { useStore } from "../stores/auth";
@@ -49,7 +49,6 @@ const confirmCode = ref("");
 
 // Submit handler
 const onSubmit = handleSubmit((values) => {
-  console.log("Hello");
   const user = store.signUp(values);
 
   user.then(
@@ -85,7 +84,6 @@ const submitConfirmCode = () => {
     },
     () => {
       // Fail
-      console.log(user);
       confirmCode.value = "";
       // confirmCodeMeta.touched = false
     }
@@ -170,8 +168,5 @@ const submitConfirmCode = () => {
   font-size: 12px;
   color: var(--red-6);
   font-weight: 600;
-}
-
-form {
 }
 </style>
