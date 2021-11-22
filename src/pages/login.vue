@@ -1,24 +1,22 @@
-<script setup lang="ts">
-</script>
+<script setup lang="ts"></script>
 
 <template>
-    <section>
-        <AuthForm />
-    </section>
+  <section>
+    <AuthForm />
+  </section>
 </template>
-
 
 <style lang="postcss" scoped>
 section {
-    padding: 0 2em;
+  padding: 0 2em;
 }
 a {
-    display: flex;
-    align-items: center;
-    gap: 1ch;
-    color: var(--gray-2);
-    text-decoration: none;
-    font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 1ch;
+  color: var(--gray-2);
+  text-decoration: none;
+  font-weight: 600;
 }
 </style>
 

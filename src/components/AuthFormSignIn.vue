@@ -49,7 +49,6 @@ const onSubmit = handleSubmit((values) => {
 
 <template>
   <form class="auth-form" @submit.prevent>
-    <p class="errors">{{ errorMessage }}</p>
     <!-- Username field -->
     <label for="username">Username</label>
     <input
@@ -82,6 +81,7 @@ const onSubmit = handleSubmit((values) => {
     <span v-if="errors.password && passwordMeta.touched" class="errors">{{
       errors.password
     }}</span>
+    <p class="errors">{{ errorMessage }}</p>
     <!-- Buttons -->
     <div class="buttons">
       <button class="solid" @click="onSubmit">Sign in</button>

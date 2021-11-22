@@ -74,8 +74,8 @@ export const useStore = defineStore("auth", {
     async signOut() {
       try {
         await Auth.signOut();
-        this.cognitoUser = {};
         this.isAuthenticated = false;
+        this.cognitoUser = {};
       } catch (error) {
         console.log("Error signing out: ", error);
       }

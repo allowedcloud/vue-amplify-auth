@@ -1,13 +1,16 @@
 <script setup lang="ts">
 import { useRouter } from "vue-router";
 import { useStore } from "../stores/auth";
+interface User {
+  username?: string;
+}
 const router = useRouter();
 const store = useStore();
 const isAuthenticated = computed(() => store.isAuthenticated);
-const user = computed(() => store.cognitoUser);
+const user: User = computed(() => store.cognitoUser);
 function signOut() {
   store.signOut();
-  router.push("/login");
+  router.push("/");
 }
 </script>
 
